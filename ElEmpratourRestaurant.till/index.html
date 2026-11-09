@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الكاشير اتنقل · El Empratour Cashier moved</title>
+<!-- fallback if the script cannot run -->
+<meta http-equiv="refresh" content="3; url=https://elcashier-eg.web.app/">
+<body style="font-family:system-ui;text-align:center;padding:40px">
+<p>الكاشير اتنقل لعنوان جديد… <a href="https://elcashier-eg.web.app/">elcashier-eg.web.app</a></p>
+<p dir="ltr">The cashier has moved to <a href="https://elcashier-eg.web.app/">elcashier-eg.web.app</a></p>
+<script>
+  // drop the old offline copy (never the saved data in localStorage), then go to the live till
+  var go = function () { location.replace("https://elcashier-eg.web.app/"); };
+  Promise.all([
+    navigator.serviceWorker ? navigator.serviceWorker.getRegistrations().then(function (rs) { return Promise.all(rs.map(function (r) { return r.unregister(); })); }) : 0,
+    window.caches ? caches.keys().then(function (ks) { return Promise.all(ks.map(function (k) { return caches.delete(k); })); }) : 0
+  ]).then(go, go);
+</script>
+</body></html>
